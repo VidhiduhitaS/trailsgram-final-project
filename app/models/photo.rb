@@ -12,4 +12,8 @@
 #
 class Photo < ApplicationRecord
   has_many(:likes, { :class_name => "Like", :foreign_key => "photos_id", :dependent => :destroy })
+
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id", :counter_cache => true })
+
+  belongs_to(:trail, { :required => true, :class_name => "Trail", :foreign_key => "trail_id", :counter_cache => true })
 end
