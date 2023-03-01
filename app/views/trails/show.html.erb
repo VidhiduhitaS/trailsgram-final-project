@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Trail #<%= @the_trail.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/trails">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_trail/<%= @the_trail.id %>">
+          Delete trail
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_trail.name %>
+      </dd>
+
+      <dt>
+        Length
+      </dt>
+      <dd>
+        <%= @the_trail.length %>
+      </dd>
+
+      <dt>
+        Duration
+      </dt>
+      <dd>
+        <%= @the_trail.duration %>
+      </dd>
+
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @the_trail.address %>
+      </dd>
+
+      <dt>
+        Difficulty
+      </dt>
+      <dd>
+        <%= @the_trail.difficulty %>
+      </dd>
+
+      <dt>
+        Photos count
+      </dt>
+      <dd>
+        <%= @the_trail.photos_count %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_trail.comments_count %>
+      </dd>
+
+      <dt>
+        Bookmarks count
+      </dt>
+      <dd>
+        <%= @the_trail.bookmarks_count %>
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_trail.likes_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trail.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trail.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit trail
+    </h2>
+
+    <form action="/modify_trail/<%= @the_trail.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_trail.name %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="length_box" name="query_length" value="1" <%= "checked" if @the_trail.length %>>
+
+        <label for="length_box">
+            Length
+        </label>
+      </div>
+
+      <div>
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="query_duration" value="<%= @the_trail.duration %>">
+      </div>
+
+      <div>
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" value="<%= @the_trail.address %>">
+      </div>
+
+      <div>
+        <label for="difficulty_box">
+          Difficulty
+        </label>
+
+        <input type="text" id="difficulty_box" name="query_difficulty" value="<%= @the_trail.difficulty %>">
+      </div>
+
+      <div>
+        <label for="photos_count_box">
+          Photos count
+        </label>
+
+        <input type="text" id="photos_count_box" name="query_photos_count" value="<%= @the_trail.photos_count %>">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_trail.comments_count %>">
+      </div>
+
+      <div>
+        <label for="bookmarks_count_box">
+          Bookmarks count
+        </label>
+
+        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count" value="<%= @the_trail.bookmarks_count %>">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_trail.likes_count %>">
+      </div>
+
+      <button>
+        Update trail
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
