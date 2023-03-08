@@ -1,34 +1,45 @@
 <h1>Sign up</h1>
 
+<div><%=notice%></div>
+
 <form action="/insert_user" method="post">
 
   <div>
     <label for="email_box">Email</label>
-    <input id="email_box" name="query_email" placeholder="Choose a email..." type="text">
+    <input id="email_box" name="query_email" placeholder="Enter your email..." type="text">
   </div>
                  
   <div>
     <label for="username_box">Username</label>
       
-    <input type="text" id="username_box" name="query_username">
+    <input type="text" id="username_box" name="query_username" placeholder="Choose your username...">
+  </div>
+
+      
+  <div>
+    <label for="account_type_box">Account type</label> 
+      
+   
+    <select id="account_type_box" name="query_account_type">
+      <option value="regular">
+        Regular
+      </option>      
+      <option value="premium">
+        Premium
+      </option>
+    </select>
   </div>
          
   <div>
-    <label for="account_type_box">Account type</label>
+    <label for="photos_count_box"></label>
       
-    <input type="text" id="account_type_box" name="query_account_type">
+    <input type="hidden" id="photos_count_box" name="query_photos_count" value="0">
   </div>
          
   <div>
-    <label for="photos_count_box">Photos count</label>
+    <label for="comments_count_box"></label>
       
-    <input type="text" id="photos_count_box" name="query_photos_count">
-  </div>
-         
-  <div>
-    <label for="comments_count_box">Comments count</label>
-      
-    <input type="text" id="comments_count_box" name="query_comments_count">
+    <input type="hidden" id="comments_count_box" name="query_comments_count" value="0">
   </div>
     
   <div>

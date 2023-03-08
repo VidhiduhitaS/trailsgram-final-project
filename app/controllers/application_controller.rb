@@ -17,11 +17,13 @@ class ApplicationController < ActionController::Base
   end
 
   def homepage
-    if session[:user_id] == nil
-      render( :template => "user_authentication/sign_in.html.erb")
-    else
-      render( :template => "homepage.html.erb")
-    end
+   # if session[:user_id] == nil
+    #  render( :template => "user_authentication/sign_in.html.erb")
+    #else
+     # redirect_to("/trails")
+    #end
+
+    render({ :template => "homepage.html.erb" })
   end
 
 end

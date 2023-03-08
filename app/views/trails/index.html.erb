@@ -17,16 +17,15 @@
     <form action="/insert_trail" method="post">
       <div>
         <label for="name_box">
-          Name
+          Trail Name
         </label>
 
         <input type="text" id="name_box" name="query_name">
       </div>
 
       <div>
-        <input type="checkbox" id="length_box" name="query_length" value="1">
-
         <label for="length_box">Length</label>
+        <input type="text" id="length_box" name="query_length" placeholder="in meters">
       </div>
 
       <div>
@@ -34,55 +33,20 @@
           Duration
         </label>
 
-        <input type="text" id="duration_box" name="query_duration">
+        <input type="text" id="duration_box" name="query_duration" placeholder="in minutes">
       </div>
 
-      <div>
-        <label for="address_box">
-          Address
-        </label>
-
-        <input type="text" id="address_box" name="query_address">
-      </div>
 
       <div>
         <label for="difficulty_box">
           Difficulty
         </label>
 
-        <input type="text" id="difficulty_box" name="query_difficulty">
-      </div>
-
-      <div>
-        <label for="photos_count_box">
-          Photos count
-        </label>
-
-        <input type="text" id="photos_count_box" name="query_photos_count">
-      </div>
-
-      <div>
-        <label for="comments_count_box">
-          Comments count
-        </label>
-
-        <input type="text" id="comments_count_box" name="query_comments_count">
-      </div>
-
-      <div>
-        <label for="bookmarks_count_box">
-          Bookmarks count
-        </label>
-
-        <input type="text" id="bookmarks_count_box" name="query_bookmarks_count">
-      </div>
-
-      <div>
-        <label for="likes_count_box">
-          Likes count
-        </label>
-
-        <input type="text" id="likes_count_box" name="query_likes_count">
+        <select id="difficulty_box" name="query_difficulty">
+        <option value="easy">Easy</option>        
+        <option value="moderate">Moderate</option>
+        <option value="hard">Hard</option>
+        </select>
       </div>
 
       <button>
@@ -114,10 +78,6 @@
         </th>
 
         <th>
-          Address
-        </th>
-
-        <th>
           Difficulty
         </th>
 
@@ -127,10 +87,6 @@
 
         <th>
           Comments count
-        </th>
-
-        <th>
-          Bookmarks count
         </th>
 
         <th>
@@ -168,10 +124,6 @@
         </td>
 
         <td>
-          <%= a_trail.address %>
-        </td>
-
-        <td>
           <%= a_trail.difficulty %>
         </td>
 
@@ -181,10 +133,6 @@
 
         <td>
           <%= a_trail.comments_count %>
-        </td>
-
-        <td>
-          <%= a_trail.bookmarks_count %>
         </td>
 
         <td>

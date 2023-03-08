@@ -18,11 +18,12 @@ class PhotosController < ApplicationController
   end
 
   def create
+    
     the_photo = Photo.new
     the_photo.url = params.fetch("query_url")
-    the_photo.user_id = params.fetch("query_user_id")
+    the_photo.user_id = session.fetch(:user_id)
     the_photo.trail_id = params.fetch("query_trail_id")
-    the_photo.likes_count = params.fetch("query_likes_count")
+
 
     if the_photo.valid?
       the_photo.save
@@ -37,9 +38,9 @@ class PhotosController < ApplicationController
     the_photo = Photo.where({ :id => the_id }).at(0)
 
     the_photo.url = params.fetch("query_url")
-    the_photo.user_id = params.fetch("query_user_id")
+    the_photo.user_id = session.fetch(:user_id)
     the_photo.trail_id = params.fetch("query_trail_id")
-    the_photo.likes_count = params.fetch("query_likes_count")
+
 
     if the_photo.valid?
       the_photo.save

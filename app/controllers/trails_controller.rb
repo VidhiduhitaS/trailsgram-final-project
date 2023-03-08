@@ -20,14 +20,13 @@ class TrailsController < ApplicationController
   def create
     the_trail = Trail.new
     the_trail.name = params.fetch("query_name")
-    the_trail.length = params.fetch("query_length", false)
+    the_trail.length = params.fetch("query_length")
     the_trail.duration = params.fetch("query_duration")
-    the_trail.address = params.fetch("query_address")
     the_trail.difficulty = params.fetch("query_difficulty")
-    the_trail.photos_count = params.fetch("query_photos_count")
-    the_trail.comments_count = params.fetch("query_comments_count")
-    the_trail.bookmarks_count = params.fetch("query_bookmarks_count")
-    the_trail.likes_count = params.fetch("query_likes_count")
+    the_trail.photos_count = 0
+    the_trail.comments_count = 0
+    the_trail.bookmarks_count = 0
+    the_trail.likes_count = 0
 
     if the_trail.valid?
       the_trail.save

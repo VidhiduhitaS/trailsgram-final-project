@@ -23,7 +23,7 @@
         Url
       </dt>
       <dd>
-        <%= @the_photo.url %>
+        <img src="<%= @the_photo.url %>" width="100" height="120" >
       </dd>
 
       <dt>
@@ -68,6 +68,7 @@
 
 
 <div>
+<%if session[:user_id] == @the_photo.user_id %> 
   <div>
     <h2>
       Edit photo
@@ -98,19 +99,13 @@
         <input type="text" id="trail_id_box" name="query_trail_id" value="<%= @the_photo.trail_id %>">
       </div>
 
-      <div>
-        <label for="likes_count_box">
-          Likes count
-        </label>
-
-        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_photo.likes_count %>">
-      </div>
-
       <button>
         Update photo
       </button>
     </form>
   </div>
+
+  <%end%>
 </div>
 
 <hr>

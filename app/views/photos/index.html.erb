@@ -23,29 +23,22 @@
         <input type="text" id="url_box" name="query_url">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
+      
 
       <div>
-        <label for="trail_id_box">
+        <label for="trail_id_box" >
           Trail
         </label>
 
-        <input type="text" id="trail_id_box" name="query_trail_id">
+        <select id="trail_id_box" name="query_trail_id">
+          <% Trail.all.order(:name).each do |the_trail|%>
+            <option value="<%=the_trail.id%>">
+              <%= the_trail.name %>
+            </option>
+          <%end%>"
+        </select>
       </div>
 
-      <div>
-        <label for="likes_count_box">
-          Likes count
-        </label>
-
-        <input type="text" id="likes_count_box" name="query_likes_count">
-      </div>
 
       <button>
         Create photo
@@ -98,7 +91,7 @@
         </td>
 
         <td>
-          <%= a_photo.url %>
+         <img src = "<%= a_photo.url %>">
         </td>
 
         <td>

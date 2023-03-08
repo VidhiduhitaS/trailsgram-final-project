@@ -8,7 +8,7 @@
 #  comments_count  :integer
 #  difficulty      :string
 #  duration        :integer
-#  length          :boolean
+#  length          :float
 #  likes_count     :integer
 #  name            :string
 #  photos_count    :integer
