@@ -1,8 +1,10 @@
 <div>
   <div>
     <h1>
-      Trail #<%= @the_trail.id %> details
+       #<%= @the_trail.id%> <%= @the_trail.name %> Trail Details
     </h1>
+
+
 
     <div>
       <div>
@@ -217,11 +219,11 @@
       </div>
 
       <div>
-        <input type="checkbox" id="length_box" name="query_length" value="1" <%= "checked" if @the_trail.length %>>
-
         <label for="length_box">
             Length
         </label>
+        
+        <input type="text" id="length_box" name="query_length" value="<%= @the_trail.length %> >
       </div>
 
       <div>

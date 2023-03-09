@@ -17,6 +17,11 @@
 
   <body>
 <ul>
+   f <%=  my_current_id = session[:user_id] %> 
+    <% current_user = User.where({ :id => my_current_id }).at(0) %>
+   g <%= current_user.account_type %>
+
+
     <%if session[:user_id] == nil%>
       <li>
         <a href = "/user_sign_in">Sign In</a>
@@ -29,7 +34,7 @@
         <a href = "/user_sign_out">Sign Out</a>
       </li>    
       <li>
-        <a href = "/bookmarks">My Bookmarks</a>
+        <a href = "/bookmarks">Bookmarks</a>
       </li>
     <%end%>
       <li>
