@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def create
     the_comment = Comment.new
     the_comment.trail_id = params.fetch("query_trail_id")
-    the_comment.user_id = params.fetch("query_user_id")
+    the_comment.user_id = session.fetch(:user_id)
 
     if the_comment.valid?
       the_comment.save

@@ -41,14 +41,11 @@ class TrailsController < ApplicationController
     the_trail = Trail.where({ :id => the_id }).at(0)
 
     the_trail.name = params.fetch("query_name")
-    the_trail.length = params.fetch("query_length", false)
+    the_trail.length = params.fetch("query_length")
     the_trail.duration = params.fetch("query_duration")
-    the_trail.address = params.fetch("query_address")
+
     the_trail.difficulty = params.fetch("query_difficulty")
-    the_trail.photos_count = params.fetch("query_photos_count")
-    the_trail.comments_count = params.fetch("query_comments_count")
-    the_trail.bookmarks_count = params.fetch("query_bookmarks_count")
-    the_trail.likes_count = params.fetch("query_likes_count")
+
 
     if the_trail.valid?
       the_trail.save
