@@ -16,7 +16,21 @@
           Delete trail
         </a>
       </div>
+
     </div>
+
+<div>
+  <form action="/insert_bookmark" method="post">
+
+     <div>
+        <input type="hidden" id="trail_id_box" name="query_trail_id" value="<%= @the_trail.id %>">
+      </div>
+
+      <button>
+        Bookmark this Trail
+      </button>
+  </form>
+</div>
 
     <dl>
       <dt>
@@ -66,10 +80,128 @@
 
 <hr>
 
+<div> 
+<h2>List of Photos</h2>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Trail
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% Photo.all.order(:trail_id).each do |a_photo| %>
+       <%if a_photo.trail_id == @the_trail.id%>
+        <tr>
+          <td>
+            <%= a_photo.id %>
+          </td>
+
+          <td>
+          <img src = "<%= a_photo.url %>">
+          </td>
+
+          <td>
+            <%= a_photo.trail.name %>
+          </td>
+
+          <td>
+            <%= a_photo.user.username %>
+          </td>
+
+          <td>
+            <%= time_ago_in_words(a_photo.updated_at) %> ago
+          </td>
+
+          <td>
+            <a href="/comments/<%= a_photo.id %>">
+              Show details
+            </a>
+          </td>
+        </tr>
+      <% end %>
+      <%end%>
+    </table>
+  </div>
+</div>
+
+<div> 
+<h2>List of Comments</h2>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Trail
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% Comment.all.order(:trail_id).each do |a_comment| %>
+       <%if a_comment.trail_id == @the_trail.id%>
+        <tr>
+          <td>
+            <%= a_comment.id %>
+          </td>
+
+          <td>
+            <%= a_comment.trail.name %>
+          </td>
+
+          <td>
+            <%= a_comment.user.username %>
+          </td>
+
+          <td>
+            <%= time_ago_in_words(a_comment.updated_at) %> ago
+          </td>
+
+          <td>
+            <a href="/comments/<%= a_comment.id %>">
+              Show details
+            </a>
+          </td>
+        </tr>
+      <% end %>
+      <%end%>
+    </table>
+  </div>
+</div>
+
 
 <div>
-
-
   <div>
     <h2>
       Edit trail
@@ -104,8 +236,12 @@
         <label for="difficulty_box">
           Difficulty
         </label>
-
-        <input type="text" id="difficulty_box" name="query_difficulty" value="<%= @the_trail.difficulty %>">
+        <select id="difficulty_box" name="query_difficulty">
+          <option value="easy">Easy</option>        
+          <option value="moderate">Moderate</option>
+          <option value="hard">Hard</option>
+        </select>
+        
       </div>
 
       <button>
