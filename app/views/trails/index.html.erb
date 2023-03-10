@@ -1,15 +1,8 @@
-<div>
-  <div>
-    <h1>
-      List of all trails
-    </h1>
-  </div>
-</div>
 
-<div>
-  <%=@user_account_type%>
-</div>
 
+<%  my_current_id = session[:user_id] %> 
+  <% current_user = User.where({ :id => my_current_id }).at(0) %>
+   User Type: <%= current_user.account_type %>
 <hr>
 
 <div>
@@ -60,6 +53,14 @@
   </div>
 </div>
 
+<div>
+  <div>
+    <h1>
+      List of all trails
+    </h1>
+  </div>
+</div>
+
 <hr>
 <div>
   <div>
@@ -94,10 +95,6 @@
         </th>
 
         <th>
-          Likes count
-        </th>
-
-        <th>
           Created at
         </th>
 
@@ -124,11 +121,19 @@
         </td>
 
         <td>
-          <%= a_trail.duration %>
+          <%if current_user.account_type == "premium"%>
+            <%= a_trail.duration %>
+          <%else%>
+            Premium Access Only
+          <%end%>
         </td>
 
         <td>
-          <%= a_trail.difficulty %>
+          <%if current_user.account_type == "premium"%>
+            <%= a_trail.difficulty %>
+          <%else%>
+            Premium Access Only
+          <%end%>
         </td>
 
         <td>
@@ -137,10 +142,6 @@
 
         <td>
           <%= a_trail.comments_count %>
-        </td>
-
-        <td>
-          <%= a_trail.likes_count %>
         </td>
 
         <td>

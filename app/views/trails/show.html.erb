@@ -82,6 +82,25 @@
 
 <hr>
 
+
+<div>
+  <div>
+    <form action="/insert_photo" method="post">
+      <div>
+        <label for="url_box">Url</label>
+        <input type="text" id="url_box" name="query_url">
+
+        <button>Upload photo</button>
+      </div>
+
+      <div>
+        <input type="hidden" id="trail_id_box" name="query_trail_id" value="<%@the_trail.id%>">
+      </div>
+    </form>
+  </div>
+</div>
+
+
 <div> 
 <h2>List of Photos</h2>
   <div>
@@ -146,6 +165,7 @@
   </div>
 </div>
 
+
 <div> 
 <h2>List of Comments</h2>
   <div>
@@ -161,6 +181,10 @@
 
         <th>
           User
+        </th>
+
+        <th>
+          Comment
         </th>
 
         <th>
@@ -187,6 +211,10 @@
           </td>
 
           <td>
+            <%= a_comment.body %>
+          </td>
+
+          <td>
             <%= time_ago_in_words(a_comment.updated_at) %> ago
           </td>
 
@@ -199,6 +227,22 @@
       <% end %>
       <%end%>
     </table>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <form action="/insert_comment" method="post">
+      <div>
+        <input type="hidden" id="trail_id_box" name="query_trail_id" value="<%@the_trail.id%>">
+      </div>
+      <div>
+        <label for="body_box">Comment:</label>
+        <input type="text" id="body_box" name="query_body">
+        <button>Create comment</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -223,7 +267,7 @@
             Length
         </label>
         
-        <input type="text" id="length_box" name="query_length" value="<%= @the_trail.length %> >
+        <input type="text" id="length_box" name="query_length" value="<%= @the_trail.length %>" >
       </div>
 
       <div>
