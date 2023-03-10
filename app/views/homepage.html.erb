@@ -1,7 +1,11 @@
 <%  my_current_id = session[:user_id] %> 
     <% current_user = User.where({ :id => my_current_id }).at(0) %>
 
+<%if session[:user_id]== nil%>
+<h1>Welcome to TrailsGram! Please Sign In</h1>
+<%else%>
 <h1>Welcome to TrailsGram, <%= current_user.username %>!</h1>
+<%end%>
 
 
 <img src="https://images.unsplash.com/photo-1562310503-a918c4c61e38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHlvc2VtaXRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="yosemite" width="800" >

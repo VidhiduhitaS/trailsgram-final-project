@@ -2,7 +2,7 @@
 
 <%  my_current_id = session[:user_id] %> 
   <% current_user = User.where({ :id => my_current_id }).at(0) %>
-   User Type: <%= current_user.account_type %>
+ <% current_user.account_type %>
 <hr>
 
 <div>

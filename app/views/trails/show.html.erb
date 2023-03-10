@@ -83,12 +83,18 @@
 <hr>
 
 
+
+
+<div> 
+<h2>List of Photos</h2>
+
+
 <div>
   <div>
     <form action="/insert_photo" method="post">
       <div>
-        <label for="url_box">Url</label>
-        <input type="text" id="url_box" name="query_url">
+        <label for="url_box"></label>
+        <input type="hidden" id="url_box" name="query_url">
 
         <button>Upload photo</button>
       </div>
@@ -100,9 +106,6 @@
   </div>
 </div>
 
-
-<div> 
-<h2>List of Photos</h2>
   <div>
     <table border="1">
       <tr>
@@ -166,8 +169,27 @@
 </div>
 
 
+
 <div> 
 <h2>List of Comments</h2>
+
+
+<div>
+  <div>
+    <form action="/insert_comment" method="post">
+      <div>
+        <input type="hidden" id="trail_id_box" name="query_trail_id" value="<%@the_trail.id%>">
+      </div>
+      <div>
+        <label for="body_box"></label>
+        <input type="hidden" id="body_box" name="query_body">
+        <button>Create comment</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
   <div>
     <table border="1">
       <tr>
@@ -230,21 +252,6 @@
   </div>
 </div>
 
-
-<div>
-  <div>
-    <form action="/insert_comment" method="post">
-      <div>
-        <input type="hidden" id="trail_id_box" name="query_trail_id" value="<%@the_trail.id%>">
-      </div>
-      <div>
-        <label for="body_box">Comment:</label>
-        <input type="text" id="body_box" name="query_body">
-        <button>Create comment</button>
-      </div>
-    </form>
-  </div>
-</div>
 
 
 <div>

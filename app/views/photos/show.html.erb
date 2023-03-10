@@ -20,31 +20,24 @@
 
     <dl>
       <dt>
-        Url
+       
       </dt>
       <dd>
-        <img src="<%= @the_photo.url %>" width="100" height="120" >
+        <img src="<%= @the_photo.url %>" width="500"  >
       </dd>
 
       <dt>
         User
       </dt>
       <dd>
-        <%= @the_photo.user_id %>
+        <%= @the_photo.user.username %>
       </dd>
 
       <dt>
         Trail
       </dt>
       <dd>
-        <%= @the_photo.trail_id %>
-      </dd>
-
-      <dt>
-        Likes count
-      </dt>
-      <dd>
-        <%= @the_photo.likes_count %>
+        <%= @the_photo.trail.name %>
       </dd>
 
       <dt>
